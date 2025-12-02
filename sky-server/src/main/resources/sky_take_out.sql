@@ -11,7 +11,7 @@
  Target Server Version : 80012 (8.0.12)
  File Encoding         : 65001
 
- Date: 02/12/2025 14:30:07
+ Date: 02/12/2025 18:08:15
 */
 
 SET NAMES utf8mb4;
@@ -37,12 +37,14 @@ CREATE TABLE `address_book`  (
   `label` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '标签',
   `is_default` tinyint(1) NOT NULL DEFAULT 0 COMMENT '默认 0 否 1是',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '地址簿' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '地址簿' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of address_book
 -- ----------------------------
 INSERT INTO `address_book` VALUES (1, 1001, '张三', '男', '13800138000', '110000', '北京市', '110100', '北京市', '110105', '朝阳区', '某某街道101号', '公司', 1);
+INSERT INTO `address_book` VALUES (4, 1003, '王五', '女', '13800138002', '310000', '上海市', '310100', '上海市', '310105', '长宁区', '中山公园路88号', '家', 1);
+INSERT INTO `address_book` VALUES (5, 1004, '赵六', '男', '13800138003', '440100', '广东省', '440100', '广州市', '440106', '天河区', '天河路385号', '公司', 1);
 
 -- ----------------------------
 -- Table structure for category
@@ -234,11 +236,82 @@ CREATE TABLE `order_detail`  (
   `number` int(11) NOT NULL DEFAULT 1 COMMENT '数量',
   `amount` decimal(10, 2) NOT NULL COMMENT '金额',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '订单明细表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 76 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '订单明细表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of order_detail
 -- ----------------------------
+INSERT INTO `order_detail` VALUES (5, '草鱼2斤', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/b544d3ba-a1ae-4d20-a860-81cb5dec9e03.png', 5, 65, NULL, '微辣', 1, 68.00);
+INSERT INTO `order_detail` VALUES (6, '金汤酸菜牛蛙', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/7694a5d8-7938-4e9d-8b9e-2075983a2e38.png', 6, 62, NULL, '中辣', 1, 88.00);
+INSERT INTO `order_detail` VALUES (7, '馒头', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/475cc599-8661-4899-8f9e-121dd8ef7d02.png', 6, 50, NULL, '', 2, 2.00);
+INSERT INTO `order_detail` VALUES (8, '北冰洋', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/4451d4be-89a2-4939-9c69-3a87151cb979.png', 6, 47, NULL, '', 1, 4.00);
+INSERT INTO `order_detail` VALUES (9, '套餐六', 'http://127.0.0.1:8080/upload/2025/11/20/b6dcbc17-9bf2-4eee-a16f-be27cbe872e9.png', 7, NULL, 36, '', 1, 212.00);
+INSERT INTO `order_detail` VALUES (10, '经典酸菜鮰鱼', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/5260ff39-986c-4a97-8850-2ec8c7583efc.png', 8, 52, NULL, '微辣', 1, 66.00);
+INSERT INTO `order_detail` VALUES (11, '蒜蓉娃娃菜', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/4879ed66-3860-4b28-ba14-306ac025fdec.png', 8, 55, NULL, '', 1, 18.00);
+INSERT INTO `order_detail` VALUES (12, '雪花啤酒', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/bf8cbfc1-04d2-40e8-9826-061ee41ab87c.png', 9, 48, NULL, '', 2, 8.00);
+INSERT INTO `order_detail` VALUES (13, '米饭', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/76752350-2121-44d2-b477-10791c23a8ec.png', 9, 49, NULL, '', 2, 4.00);
+INSERT INTO `order_detail` VALUES (14, '蜀味水煮草鱼', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/a6953d5a-4c18-4b30-9319-4926ee77261f.png', 10, 53, NULL, '中辣', 1, 38.00);
+INSERT INTO `order_detail` VALUES (15, '平菇豆腐汤', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/16d0a3d6-2253-4cfc-9b49-bf7bd9eb2ad2.png', 10, 69, NULL, '', 1, 6.00);
+INSERT INTO `order_detail` VALUES (16, '套餐一', 'http://127.0.0.1:8080/upload/2025/11/20/22284f2c-de8d-4da9-b5c8-921107eb1ec7.png', 11, NULL, 33, '', 1, 222.00);
+INSERT INTO `order_detail` VALUES (17, '馒头', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/475cc599-8661-4899-8f9e-121dd8ef7d02.png', 11, 50, NULL, '', 1, 3.00);
+INSERT INTO `order_detail` VALUES (18, '清蒸鲈鱼', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/c18b5c67-3b71-466c-a75a-e63c6449f21c.png', 12, 58, NULL, '', 1, 98.00);
+INSERT INTO `order_detail` VALUES (19, '王老吉', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/41bfcacf-7ad4-4927-8b26-df366553a94c.png', 12, 46, NULL, '少糖', 2, 12.00);
+INSERT INTO `order_detail` VALUES (20, '经典酸菜鮰鱼', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/5260ff39-986c-4a97-8850-2ec8c7583efc.png', 13, 52, NULL, '不辣', 1, 66.00);
+INSERT INTO `order_detail` VALUES (21, '蜀味水煮草鱼', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/a6953d5a-4c18-4b30-9319-4926ee77261f.png', 14, 53, NULL, '中辣', 1, 38.00);
+INSERT INTO `order_detail` VALUES (22, '套餐一', 'http://127.0.0.1:8080/upload/2025/11/20/22284f2c-de8d-4da9-b5c8-921107eb1ec7.png', 15, NULL, 33, '', 1, 222.00);
+INSERT INTO `order_detail` VALUES (23, '清蒸鲈鱼', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/c18b5c67-3b71-466c-a75a-e63c6449f21c.png', 16, 58, NULL, '', 1, 98.00);
+INSERT INTO `order_detail` VALUES (24, '王老吉', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/41bfcacf-7ad4-4927-8b26-df366553a94c.png', 16, 46, NULL, '少糖', 2, 12.00);
+INSERT INTO `order_detail` VALUES (25, '清蒸鲈鱼', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/c18b5c67-3b71-466c-a75a-e63c6449f21c.png', 17, 58, NULL, '不辣', 1, 98.00);
+INSERT INTO `order_detail` VALUES (26, '经典酸菜鮰鱼', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/5260ff39-986c-4a97-8850-2ec8c7583efc.png', 18, 52, NULL, '微辣', 1, 66.00);
+INSERT INTO `order_detail` VALUES (27, '蜀味水煮草鱼', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/a6953d5a-4c18-4b30-9319-4926ee77261f.png', 19, 53, NULL, '中辣', 1, 38.00);
+INSERT INTO `order_detail` VALUES (28, '蒜蓉娃娃菜', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/4879ed66-3860-4b28-ba14-306ac025fdec.png', 20, 55, NULL, '', 1, 18.00);
+INSERT INTO `order_detail` VALUES (29, '雪花啤酒', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/bf8cbfc1-04d2-40e8-9826-061ee41ab87c.png', 21, 48, NULL, '', 2, 8.00);
+INSERT INTO `order_detail` VALUES (30, '套餐一', 'http://127.0.0.1:8080/upload/2025/11/20/22284f2c-de8d-4da9-b5c8-921107eb1ec7.png', 22, NULL, 33, '', 1, 222.00);
+INSERT INTO `order_detail` VALUES (31, '清蒸鲈鱼', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/c18b5c67-3b71-466c-a75a-e63c6449f21c.png', 23, 58, NULL, '', 1, 98.00);
+INSERT INTO `order_detail` VALUES (32, '经典酸菜鮰鱼', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/5260ff39-986c-4a97-8850-2ec8c7583efc.png', 24, 52, NULL, '微辣', 1, 66.00);
+INSERT INTO `order_detail` VALUES (33, '蜀味水煮草鱼', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/a6953d5a-4c18-4b30-9319-4926ee77261f.png', 25, 53, NULL, '中辣', 1, 38.00);
+INSERT INTO `order_detail` VALUES (34, '平菇豆腐汤', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/16d0a3d6-2253-4cfc-9b49-bf7bd9eb2ad2.png', 25, 69, NULL, '', 1, 6.00);
+INSERT INTO `order_detail` VALUES (35, '清蒸鲈鱼', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/c18b5c67-3b71-466c-a75a-e63c6449f21c.png', 26, 58, NULL, '', 1, 98.00);
+INSERT INTO `order_detail` VALUES (36, '王老吉', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/41bfcacf-7ad4-4927-8b26-df366553a94c.png', 26, 46, NULL, '少糖', 2, 12.00);
+INSERT INTO `order_detail` VALUES (37, '蜀味水煮草鱼', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/a6953d5a-4c18-4b30-9319-4926ee77261f.png', 27, 53, NULL, '中辣', 1, 38.00);
+INSERT INTO `order_detail` VALUES (38, '剁椒鱼头', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/13da832f-ef2c-484d-8370-5934a1045a06.png', 28, 61, NULL, '中辣', 1, 66.00);
+INSERT INTO `order_detail` VALUES (39, '梅菜扣肉', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/6080b118-e30a-4577-aab4-45042e3f88be.png', 28, 60, NULL, '', 1, 58.00);
+INSERT INTO `order_detail` VALUES (40, '香锅牛蛙', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/f5ac8455-4793-450c-97ba-173795c34626.png', 29, 63, NULL, '微辣', 1, 88.00);
+INSERT INTO `order_detail` VALUES (41, '清炒西兰花', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/e9ec4ba4-4b22-4fc8-9be0-4946e6aeb937.png', 29, 56, NULL, '', 1, 18.00);
+INSERT INTO `order_detail` VALUES (42, '家庭套餐', 'http://127.0.0.1:8080/upload/2025/12/02/family_set.png', 30, NULL, 37, '', 1, 399.00);
+INSERT INTO `order_detail` VALUES (43, '鸡蛋汤', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/c09a0ee8-9d19-428d-81b9-746221824113.png', 30, 68, NULL, '', 1, 4.00);
+INSERT INTO `order_detail` VALUES (44, '商务套餐升级版', 'http://127.0.0.1:8080/upload/2025/12/02/business_set.png', 31, NULL, 38, '', 1, 299.00);
+INSERT INTO `order_detail` VALUES (45, '炝炒圆白菜', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/22f59feb-0d44-430e-a6cd-6a49f27453ca.png', 31, 57, NULL, '', 1, 18.00);
+INSERT INTO `order_detail` VALUES (46, '鮰鱼2斤', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/8cfcc576-4b66-4a09-ac68-ad5b273c2590.png', 32, 67, NULL, '重辣', 1, 72.00);
+INSERT INTO `order_detail` VALUES (47, '北冰洋', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/4451d4be-89a2-4939-9c69-3a87151cb979.png', 32, 47, NULL, '', 2, 8.00);
+INSERT INTO `order_detail` VALUES (48, '金汤酸菜牛蛙', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/7694a5d8-7938-4e9d-8b9e-2075983a2e38.png', 33, 62, NULL, '不辣', 1, 88.00);
+INSERT INTO `order_detail` VALUES (49, '套餐六', 'http://127.0.0.1:8080/upload/2025/11/20/b6dcbc17-9bf2-4eee-a16f-be27cbe872e9.png', 34, NULL, 36, '', 1, 212.00);
+INSERT INTO `order_detail` VALUES (50, '馒头', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/475cc599-8661-4899-8f9e-121dd8ef7d02.png', 34, 50, NULL, '', 2, 2.00);
+INSERT INTO `order_detail` VALUES (51, '东坡肘子', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/a80a4b8c-c93e-4f43-ac8a-856b0d5cc451.png', 35, 59, NULL, '', 1, 138.00);
+INSERT INTO `order_detail` VALUES (52, '王老吉', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/41bfcacf-7ad4-4927-8b26-df366553a94c.png', 35, 46, NULL, '无糖', 2, 12.00);
+INSERT INTO `order_detail` VALUES (53, '清炒小油菜', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/3613d38e-5614-41c2-90ed-ff175bf50716.png', 36, 54, NULL, '', 1, 18.00);
+INSERT INTO `order_detail` VALUES (54, '草鱼2斤', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/b544d3ba-a1ae-4d20-a860-81cb5dec9e03.png', 36, 65, NULL, '微辣', 1, 68.00);
+INSERT INTO `order_detail` VALUES (55, '蒜蓉娃娃菜', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/4879ed66-3860-4b28-ba14-306ac025fdec.png', 37, 55, NULL, '', 1, 18.00);
+INSERT INTO `order_detail` VALUES (56, '雪花啤酒', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/bf8cbfc1-04d2-40e8-9826-061ee41ab87c.png', 37, 48, NULL, '', 3, 12.00);
+INSERT INTO `order_detail` VALUES (57, '金汤酸菜牛蛙', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/7694a5d8-7938-4e9d-8b9e-2075983a2e38.png', 38, 62, NULL, '不辣', 1, 88.00);
+INSERT INTO `order_detail` VALUES (58, '米饭', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/76752350-2121-44d2-b477-10791c23a8ec.png', 38, 49, NULL, '', 3, 6.00);
+INSERT INTO `order_detail` VALUES (59, '套餐六', 'http://127.0.0.1:8080/upload/2025/11/20/b6dcbc17-9bf2-4eee-a16f-be27cbe872e9.png', 39, NULL, 36, '', 1, 212.00);
+INSERT INTO `order_detail` VALUES (60, '馒头', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/475cc599-8661-4899-8f9e-121dd8ef7d02.png', 39, 50, NULL, '', 2, 2.00);
+INSERT INTO `order_detail` VALUES (61, '东坡肘子', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/a80a4b8c-c93e-4f43-ac8a-856b0d5cc451.png', 40, 59, NULL, '', 1, 138.00);
+INSERT INTO `order_detail` VALUES (62, '王老吉', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/41bfcacf-7ad4-4927-8b26-df366553a94c.png', 40, 46, NULL, '无糖', 2, 12.00);
+INSERT INTO `order_detail` VALUES (63, '清炒小油菜', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/3613d38e-5614-41c2-90ed-ff175bf50716.png', 41, 54, NULL, '', 1, 18.00);
+INSERT INTO `order_detail` VALUES (64, '草鱼2斤', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/b544d3ba-a1ae-4d20-a860-81cb5dec9e03.png', 41, 65, NULL, '微辣', 1, 68.00);
+INSERT INTO `order_detail` VALUES (65, '蒜蓉娃娃菜', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/4879ed66-3860-4b28-ba14-306ac025fdec.png', 42, 55, NULL, '', 1, 18.00);
+INSERT INTO `order_detail` VALUES (66, '雪花啤酒', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/bf8cbfc1-04d2-40e8-9826-061ee41ab87c.png', 42, 48, NULL, '', 3, 12.00);
+INSERT INTO `order_detail` VALUES (67, '剁椒鱼头', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/13da832f-ef2c-484d-8370-5934a1045a06.png', 43, 61, NULL, '中辣', 1, 66.00);
+INSERT INTO `order_detail` VALUES (68, '梅菜扣肉', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/6080b118-e30a-4577-aab4-45042e3f88be.png', 43, 60, NULL, '', 1, 58.00);
+INSERT INTO `order_detail` VALUES (69, '鮰鱼2斤', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/8cfcc576-4b66-4a09-ac68-ad5b273c2590.png', 44, 67, NULL, '重辣', 1, 72.00);
+INSERT INTO `order_detail` VALUES (70, '北冰洋', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/4451d4be-89a2-4939-9c69-3a87151cb979.png', 44, 47, NULL, '', 2, 8.00);
+INSERT INTO `order_detail` VALUES (71, '清炒西兰花', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/e9ec4ba4-4b22-4fc8-9be0-4946e6aeb937.png', 45, 56, NULL, '', 1, 18.00);
+INSERT INTO `order_detail` VALUES (72, '香锅牛蛙', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/f5ac8455-4793-450c-97ba-173795c34626.png', 45, 63, NULL, '微辣', 1, 88.00);
+INSERT INTO `order_detail` VALUES (73, '鸡蛋汤', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/c09a0ee8-9d19-428d-81b9-746221824113.png', 46, 68, NULL, '', 1, 4.00);
+INSERT INTO `order_detail` VALUES (74, '家庭套餐', 'http://127.0.0.1:8080/upload/2025/12/02/family_set.png', 46, NULL, 37, '', 1, 399.00);
+INSERT INTO `order_detail` VALUES (75, '草鱼2斤', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/b544d3ba-a1ae-4d20-a860-81cb5dec9e03.png', 47, 65, NULL, '微辣', 1, 68.00);
 
 -- ----------------------------
 -- Table structure for orders
@@ -270,12 +343,55 @@ CREATE TABLE `orders`  (
   `tableware_number` int(11) NULL DEFAULT NULL COMMENT '餐具数量',
   `tableware_status` tinyint(1) NOT NULL DEFAULT 1 COMMENT '餐具数量状态  1按餐量提供  0选择具体数量',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '订单表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 48 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '订单表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of orders
 -- ----------------------------
 INSERT INTO `orders` VALUES (4, 'ORDER20231201001', 6, 1001, 2001, '2023-12-01 12:00:00', '2023-12-01 12:05:00', 1, 1, 99.90, '请尽快配送', '13800138000', '北京市朝阳区某某街道101号', NULL, '张三', '订单超时，自动取消', NULL, '2025-12-02 13:25:55', '2023-12-01 13:00:00', 0, NULL, 2, 1, 1);
+INSERT INTO `orders` VALUES (5, 'ORDER20251202001', 5, 1001, 1, '2025-12-02 13:00:00', '2025-12-02 13:30:00', 1, 1, 68.00, '尽快配送', '13800138000', '北京市朝阳区某某街道101号', '张三', '张三', NULL, NULL, NULL, '2025-12-02 14:00:00', 1, NULL, 2, 2, 1);
+INSERT INTO `orders` VALUES (6, 'ORDER20251202002', 4, 1003, 5, '2025-12-02 14:00:00', NULL, 2, 1, 100.00, '', '13800138002', '上海市长宁区中山公园路88号', '王五', '王五', NULL, NULL, NULL, '2025-12-02 14:30:00', 1, NULL, 3, 3, 1);
+INSERT INTO `orders` VALUES (7, 'ORDER20251202003', 3, 1004, 6, '2025-12-02 15:00:00', NULL, 1, 1, 212.00, '餐具多带一份', '13800138003', '广州市天河区天河路385号', '赵六', '赵六', NULL, NULL, NULL, '2025-12-02 15:30:00', 0, NULL, 5, 4, 0);
+INSERT INTO `orders` VALUES (8, 'ORDER20251125001', 5, 1001, 1, '2025-11-25 09:10:00', '2025-11-25 09:40:00', 1, 1, 84.00, '尽快', '13800138000', '北京市朝阳区某某街道101号', '张三', '张三', NULL, NULL, NULL, '2025-11-25 10:00:00', 1, NULL, 2, 2, 1);
+INSERT INTO `orders` VALUES (9, 'ORDER20251125002', 5, 1002, 2, '2025-11-25 12:10:00', '2025-11-25 12:40:00', 2, 1, 12.00, '', '13800138001', '北京市海淀区中关村大街1号', '李四', '李四', NULL, NULL, NULL, '2025-11-25 13:00:00', 1, NULL, 1, 2, 1);
+INSERT INTO `orders` VALUES (10, 'ORDER20251126001', 5, 1003, 5, '2025-11-26 10:00:00', '2025-11-26 10:30:00', 1, 1, 44.00, '不要香菜', '13800138002', '上海市长宁区中山公园路88号', '王五', '王五', NULL, NULL, NULL, '2025-11-26 11:00:00', 1, NULL, 1, 1, 1);
+INSERT INTO `orders` VALUES (11, 'ORDER20251126002', 5, 1004, 6, '2025-11-26 18:00:00', '2025-11-26 18:30:00', 1, 1, 225.00, '餐具多带', '13800138003', '广州市天河区天河路385号', '赵六', '赵六', NULL, NULL, NULL, '2025-11-26 19:00:00', 1, NULL, 3, 4, 0);
+INSERT INTO `orders` VALUES (12, 'ORDER20251127001', 4, 1001, 1, '2025-11-27 11:00:00', NULL, 1, 1, 110.00, '', '13800138000', '北京市朝阳区某某街道101号', '张三', '张三', NULL, NULL, NULL, '2025-11-27 11:30:00', 1, NULL, 2, 2, 1);
+INSERT INTO `orders` VALUES (13, 'ORDER20251127002', 3, 1002, 2, '2025-11-27 14:00:00', NULL, 2, 1, 66.00, '开发票', '13800138001', '北京市海淀区中关村大街1号', '李四', '李四', NULL, NULL, NULL, '2025-11-27 14:30:00', 0, NULL, 2, 2, 1);
+INSERT INTO `orders` VALUES (14, 'ORDER20251128001', 5, 1003, 5, '2025-11-28 09:00:00', '2025-11-28 09:30:00', 1, 1, 38.00, '', '13800138002', '上海市长宁区中山公园路88号', '王五', '王五', NULL, NULL, NULL, '2025-11-28 10:00:00', 1, NULL, 1, 1, 1);
+INSERT INTO `orders` VALUES (15, 'ORDER20251128002', 5, 1004, 6, '2025-11-28 12:00:00', '2025-11-28 12:30:00', 1, 1, 222.00, '加急', '13800138003', '广州市天河区天河路385号', '赵六', '赵六', NULL, NULL, NULL, '2025-11-28 13:00:00', 1, NULL, 3, 3, 0);
+INSERT INTO `orders` VALUES (16, 'ORDER20251129001', 5, 1001, 1, '2025-11-29 17:10:00', '2025-11-29 17:40:00', 1, 1, 110.00, '', '13800138000', '北京市朝阳区某某街道101号', '张三', '张三', NULL, NULL, NULL, '2025-11-29 18:00:00', 1, NULL, 2, 2, 1);
+INSERT INTO `orders` VALUES (17, 'ORDER20251129002', 4, 1002, 2, '2025-11-29 19:00:00', NULL, 2, 1, 98.00, '不要辣', '13800138001', '北京市海淀区中关村大街1号', '李四', '李四', NULL, NULL, NULL, '2025-11-29 19:30:00', 1, NULL, 2, 2, 1);
+INSERT INTO `orders` VALUES (18, 'ORDER20251130001', 5, 1003, 5, '2025-11-30 10:00:00', '2025-11-30 10:30:00', 1, 1, 66.00, '', '13800138002', '上海市长宁区中山公园路88号', '王五', '王五', NULL, NULL, NULL, '2025-11-30 11:00:00', 1, NULL, 2, 2, 1);
+INSERT INTO `orders` VALUES (19, 'ORDER20251130002', 5, 1004, 6, '2025-11-30 16:00:00', '2025-11-30 16:30:00', 1, 1, 38.00, '开发票', '13800138003', '广州市天河区天河路385号', '赵六', '赵六', NULL, NULL, NULL, '2025-11-30 17:00:00', 1, NULL, 1, 1, 1);
+INSERT INTO `orders` VALUES (20, 'ORDER20251201001', 3, 1001, 1, '2025-12-01 09:00:00', NULL, 1, 1, 18.00, '', '13800138000', '北京市朝阳区某某街道101号', '张三', '张三', NULL, NULL, NULL, '2025-12-01 09:30:00', 1, NULL, 1, 1, 1);
+INSERT INTO `orders` VALUES (21, 'ORDER20251201002', 5, 1002, 2, '2025-12-01 12:00:00', '2025-12-01 12:30:00', 2, 1, 8.00, '', '13800138001', '北京市海淀区中关村大街1号', '李四', '李四', NULL, NULL, NULL, '2025-12-01 13:00:00', 1, NULL, 1, 2, 1);
+INSERT INTO `orders` VALUES (22, 'ORDER20251201003', 4, 1003, 5, '2025-12-01 15:00:00', NULL, 1, 1, 222.00, '加急', '13800138002', '上海市长宁区中山公园路88号', '王五', '王五', NULL, NULL, NULL, '2025-12-01 15:30:00', 1, NULL, 3, 4, 0);
+INSERT INTO `orders` VALUES (23, 'ORDER20251202004', 5, 1004, 6, '2025-12-02 08:00:00', '2025-12-02 08:30:00', 1, 1, 98.00, '', '13800138003', '广州市天河区天河路385号', '赵六', '赵六', NULL, NULL, NULL, '2025-12-02 09:00:00', 1, NULL, 2, 2, 1);
+INSERT INTO `orders` VALUES (24, 'ORDER20251202005', 5, 1001, 1, '2025-12-02 10:00:00', '2025-12-02 10:30:00', 1, 1, 66.00, '不要蒜', '13800138000', '北京市朝阳区某某街道101号', '张三', '张三', NULL, NULL, NULL, '2025-12-02 11:00:00', 1, NULL, 2, 2, 1);
+INSERT INTO `orders` VALUES (25, 'ORDER20251202006', 3, 1002, 2, '2025-12-02 11:00:00', NULL, 2, 1, 44.00, '', '13800138001', '北京市海淀区中关村大街1号', '李四', '李四', NULL, NULL, NULL, '2025-12-02 11:30:00', 0, NULL, 1, 2, 1);
+INSERT INTO `orders` VALUES (26, 'ORDER20251202007', 4, 1003, 5, '2025-12-02 14:00:00', NULL, 1, 1, 110.00, '开发票', '13800138002', '上海市长宁区中山公园路88号', '王五', '王五', NULL, NULL, NULL, '2025-12-02 14:30:00', 1, NULL, 2, 2, 0);
+INSERT INTO `orders` VALUES (27, 'ORDER20251202008', 5, 1004, 6, '2025-12-02 16:00:00', '2025-12-02 16:30:00', 1, 1, 38.00, '', '13800138003', '广州市天河区天河路385号', '赵六', '赵六', NULL, NULL, NULL, '2025-12-02 17:00:00', 1, NULL, 1, 1, 1);
+INSERT INTO `orders` VALUES (28, 'ORDER20251115001', 5, 1001, 1, '2025-11-15 18:10:00', '2025-11-15 18:40:00', 1, 1, 124.00, '不要香菜', '13800138000', '北京市朝阳区某某街道101号', '张三', '张三', NULL, NULL, NULL, '2025-11-15 19:00:00', 1, NULL, 2, 2, 1);
+INSERT INTO `orders` VALUES (29, 'ORDER20251115002', 5, 1002, 2, '2025-11-15 19:00:00', '2025-11-15 19:30:00', 2, 1, 106.00, '', '13800138001', '北京市海淀区中关村大街1号', '李四', '李四', NULL, NULL, NULL, '2025-11-15 20:00:00', 1, NULL, 2, 3, 1);
+INSERT INTO `orders` VALUES (30, 'ORDER20251116001', 5, 1003, 5, '2025-11-16 12:10:00', '2025-11-16 12:40:00', 1, 1, 106.00, '', '13800138002', '上海市长宁区中山公园路88号', '王五', '王五', NULL, NULL, NULL, '2025-11-16 13:00:00', 1, NULL, 2, 2, 1);
+INSERT INTO `orders` VALUES (31, 'ORDER20251116002', 4, 1004, 6, '2025-11-16 18:00:00', NULL, 1, 1, 317.00, '加急', '13800138003', '广州市天河区天河路385号', '赵六', '赵六', NULL, NULL, NULL, '2025-11-16 18:30:00', 1, NULL, 3, 4, 0);
+INSERT INTO `orders` VALUES (32, 'ORDER20251117001', 5, 1001, 1, '2025-11-17 11:00:00', '2025-11-17 11:30:00', 1, 1, 403.00, '开发票', '13800138000', '北京市朝阳区某某街道101号', '张三', '张三', NULL, NULL, NULL, '2025-11-17 12:00:00', 1, NULL, 4, 4, 0);
+INSERT INTO `orders` VALUES (33, 'ORDER20251117002', 3, 1002, 2, '2025-11-17 14:00:00', NULL, 2, 1, 80.00, '', '13800138001', '北京市海淀区中关村大街1号', '李四', '李四', NULL, NULL, NULL, '2025-11-17 14:30:00', 0, NULL, 1, 2, 1);
+INSERT INTO `orders` VALUES (34, 'ORDER20251118001', 5, 1003, 5, '2025-11-18 17:10:00', '2025-11-18 17:40:00', 1, 1, 317.00, '', '13800138002', '上海市长宁区中山公园路88号', '王五', '王五', NULL, NULL, NULL, '2025-11-18 18:00:00', 1, NULL, 3, 3, 0);
+INSERT INTO `orders` VALUES (35, 'ORDER20251118002', 5, 1004, 6, '2025-11-18 19:00:00', '2025-11-18 19:30:00', 1, 1, 80.00, '不要辣', '13800138003', '广州市天河区天河路385号', '赵六', '赵六', NULL, NULL, NULL, '2025-11-18 20:00:00', 1, NULL, 1, 2, 1);
+INSERT INTO `orders` VALUES (36, 'ORDER20251119001', 5, 1001, 1, '2025-11-19 10:10:00', '2025-11-19 10:40:00', 1, 1, 80.00, '', '13800138000', '北京市朝阳区某某街道101号', '张三', '张三', NULL, NULL, NULL, '2025-11-19 11:00:00', 1, NULL, 2, 2, 1);
+INSERT INTO `orders` VALUES (37, 'ORDER20251119002', 4, 1002, 2, '2025-11-19 18:00:00', NULL, 2, 1, 94.00, '尽快', '13800138001', '北京市海淀区中关村大街1号', '李四', '李四', NULL, NULL, NULL, '2025-11-19 18:30:00', 1, NULL, 2, 3, 1);
+INSERT INTO `orders` VALUES (38, 'ORDER20251120001', 5, 1003, 5, '2025-11-20 18:10:00', '2025-11-20 18:40:00', 1, 1, 94.00, '', '13800138002', '上海市长宁区中山公园路88号', '王五', '王五', NULL, NULL, NULL, '2025-11-20 19:00:00', 1, NULL, 2, 3, 1);
+INSERT INTO `orders` VALUES (39, 'ORDER20251120002', 5, 1004, 6, '2025-11-20 20:00:00', '2025-11-20 20:30:00', 1, 1, 214.00, '餐具多带', '13800138003', '广州市天河区天河路385号', '赵六', '赵六', NULL, NULL, NULL, '2025-11-20 21:00:00', 1, NULL, 3, 4, 0);
+INSERT INTO `orders` VALUES (40, 'ORDER20251121001', 3, 1001, 1, '2025-11-21 12:10:00', NULL, 1, 1, 86.00, '', '13800138000', '北京市朝阳区某某街道101号', '张三', '张三', NULL, NULL, NULL, '2025-11-21 12:30:00', 1, NULL, 1, 2, 1);
+INSERT INTO `orders` VALUES (41, 'ORDER20251121002', 5, 1002, 2, '2025-11-21 15:00:00', '2025-11-21 15:30:00', 2, 1, 150.00, '开发票', '13800138001', '北京市海淀区中关村大街1号', '李四', '李四', NULL, NULL, NULL, '2025-11-21 16:00:00', 1, NULL, 2, 2, 0);
+INSERT INTO `orders` VALUES (42, 'ORDER20251122001', 5, 1003, 5, '2025-11-22 19:10:00', '2025-11-22 19:40:00', 1, 1, 150.00, '', '13800138002', '上海市长宁区中山公园路88号', '王五', '王五', NULL, NULL, NULL, '2025-11-22 20:00:00', 1, NULL, 2, 2, 0);
+INSERT INTO `orders` VALUES (43, 'ORDER20251122002', 4, 1004, 6, '2025-11-22 21:00:00', NULL, 1, 1, 86.00, '加急', '13800138003', '广州市天河区天河路385号', '赵六', '赵六', NULL, NULL, NULL, '2025-11-22 21:30:00', 1, NULL, 1, 2, 1);
+INSERT INTO `orders` VALUES (44, 'ORDER20251123001', 5, 1001, 1, '2025-11-23 11:10:00', '2025-11-23 11:40:00', 1, 1, 86.00, '', '13800138000', '北京市朝阳区某某街道101号', '张三', '张三', NULL, NULL, NULL, '2025-11-23 12:00:00', 1, NULL, 2, 2, 1);
+INSERT INTO `orders` VALUES (45, 'ORDER20251123002', 5, 1002, 2, '2025-11-23 18:00:00', '2025-11-23 18:30:00', 2, 1, 30.00, '不要蒜', '13800138001', '北京市海淀区中关村大街1号', '李四', '李四', NULL, NULL, NULL, '2025-11-23 19:00:00', 1, NULL, 1, 2, 1);
+INSERT INTO `orders` VALUES (46, 'ORDER20251124001', 3, 1003, 5, '2025-11-24 17:10:00', NULL, 1, 1, 30.00, '', '13800138002', '上海市长宁区中山公园路88号', '王五', '王五', NULL, NULL, NULL, '2025-11-24 17:30:00', 1, NULL, 1, 2, 1);
+INSERT INTO `orders` VALUES (47, 'ORDER20251124002', 5, 1004, 6, '2025-11-24 19:00:00', '2025-11-24 19:30:00', 1, 1, 68.00, '', '13800138003', '广州市天河区天河路385号', '赵六', '赵六', NULL, NULL, NULL, '2025-11-24 20:00:00', 1, NULL, 2, 2, 1);
 
 -- ----------------------------
 -- Table structure for setmeal
@@ -295,7 +411,7 @@ CREATE TABLE `setmeal`  (
   `update_user` bigint(20) NULL DEFAULT NULL COMMENT '修改人',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `idx_setmeal_name`(`name` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 37 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '套餐' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 39 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '套餐' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of setmeal
@@ -304,6 +420,8 @@ INSERT INTO `setmeal` VALUES (33, 13, '套餐一', 222.00, 0, '', 'http://127.0.
 INSERT INTO `setmeal` VALUES (34, 13, '套餐二', 222.00, 0, '', 'http://127.0.0.1:8080/upload/2025/11/20/f8963e05-d8b6-4a43-b1d5-aee1a651eee4.png', '2025-11-20 19:26:25', '2025-11-20 19:26:25', 1, 1);
 INSERT INTO `setmeal` VALUES (35, 13, '套餐三', 2323.00, 0, '', 'http://127.0.0.1:8080/upload/2025/11/20/76b61cc7-d3f2-460c-b2a1-bb5329607dd0.png', '2025-11-20 19:26:55', '2025-11-29 09:55:06', 1, 1);
 INSERT INTO `setmeal` VALUES (36, 13, '套餐六', 212.00, 1, '', 'http://127.0.0.1:8080/upload/2025/11/20/b6dcbc17-9bf2-4eee-a16f-be27cbe872e9.png', '2025-11-20 19:27:23', '2025-11-20 19:47:30', 1, 1);
+INSERT INTO `setmeal` VALUES (37, 13, '家庭套餐', 399.00, 1, '适合3-4人食用', 'http://127.0.0.1:8080/upload/2025/12/02/family_set.png', '2025-12-02 12:00:00', '2025-12-02 12:00:00', 1, 1);
+INSERT INTO `setmeal` VALUES (38, 15, '商务套餐升级版', 299.00, 1, '商务宴请优选', 'http://127.0.0.1:8080/upload/2025/12/02/business_set.png', '2025-12-02 12:10:00', '2025-12-02 12:10:00', 1, 1);
 
 -- ----------------------------
 -- Table structure for setmeal_dish
@@ -317,7 +435,7 @@ CREATE TABLE `setmeal_dish`  (
   `price` decimal(10, 2) NULL DEFAULT NULL COMMENT '菜品单价（冗余字段）',
   `copies` int(11) NULL DEFAULT NULL COMMENT '菜品份数',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 138 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '套餐菜品关系' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 146 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '套餐菜品关系' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of setmeal_dish
@@ -369,6 +487,14 @@ INSERT INTO `setmeal_dish` VALUES (134, 36, 47, '北冰洋', 4.00, 1);
 INSERT INTO `setmeal_dish` VALUES (135, 36, 48, '雪花啤酒', 4.00, 1);
 INSERT INTO `setmeal_dish` VALUES (136, 36, 69, '平菇豆腐汤', 6.00, 1);
 INSERT INTO `setmeal_dish` VALUES (137, 36, 68, '鸡蛋汤', 4.00, 1);
+INSERT INTO `setmeal_dish` VALUES (138, 37, 51, '老坛酸菜鱼', 56.00, 1);
+INSERT INTO `setmeal_dish` VALUES (139, 37, 54, '清炒小油菜', 18.00, 1);
+INSERT INTO `setmeal_dish` VALUES (140, 37, 49, '米饭', 2.00, 3);
+INSERT INTO `setmeal_dish` VALUES (141, 37, 46, '王老吉', 6.00, 3);
+INSERT INTO `setmeal_dish` VALUES (142, 38, 62, '金汤酸菜牛蛙', 88.00, 1);
+INSERT INTO `setmeal_dish` VALUES (143, 38, 58, '清蒸鲈鱼', 98.00, 1);
+INSERT INTO `setmeal_dish` VALUES (144, 38, 68, '鸡蛋汤', 4.00, 2);
+INSERT INTO `setmeal_dish` VALUES (145, 38, 49, '米饭', 2.00, 2);
 
 -- ----------------------------
 -- Table structure for shopping_cart
@@ -386,12 +512,46 @@ CREATE TABLE `shopping_cart`  (
   `amount` decimal(10, 2) NOT NULL COMMENT '金额',
   `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '购物车' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 43 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '购物车' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of shopping_cart
 -- ----------------------------
 INSERT INTO `shopping_cart` VALUES (1, '1', '1', 1, 1, 1, '1', 1, 1.00, '2025-11-05 12:29:58');
+INSERT INTO `shopping_cart` VALUES (9, '王老吉', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/41bfcacf-7ad4-4927-8b26-df366553a94c.png', 1001, 46, NULL, '无糖', 2, 12.00, '2025-12-02 11:00:00');
+INSERT INTO `shopping_cart` VALUES (10, '米饭', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/76752350-2121-44d2-b477-10791c23a8ec.png', 1002, 49, NULL, '', 1, 2.00, '2025-12-02 11:10:00');
+INSERT INTO `shopping_cart` VALUES (11, '金汤酸菜牛蛙', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/7694a5d8-7938-4e9d-8b9e-2075983a2e38.png', 1003, 62, NULL, '微辣', 1, 88.00, '2025-12-02 11:20:00');
+INSERT INTO `shopping_cart` VALUES (12, '套餐六', 'http://127.0.0.1:8080/upload/2025/11/20/b6dcbc17-9bf2-4eee-a16f-be27cbe872e9.png', 1004, NULL, 36, '', 1, 212.00, '2025-12-02 11:30:00');
+INSERT INTO `shopping_cart` VALUES (13, '经典酸菜鮰鱼', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/5260ff39-986c-4a97-8850-2ec8c7583efc.png', 1001, 52, NULL, '微辣', 1, 66.00, '2025-11-25 09:00:00');
+INSERT INTO `shopping_cart` VALUES (14, '蒜蓉娃娃菜', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/4879ed66-3860-4b28-ba14-306ac025fdec.png', 1001, 55, NULL, '', 1, 18.00, '2025-11-25 09:05:00');
+INSERT INTO `shopping_cart` VALUES (15, '雪花啤酒', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/bf8cbfc1-04d2-40e8-9826-061ee41ab87c.png', 1002, 48, NULL, '', 2, 8.00, '2025-11-26 12:00:00');
+INSERT INTO `shopping_cart` VALUES (16, '米饭', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/76752350-2121-44d2-b477-10791c23a8ec.png', 1002, 49, NULL, '', 2, 4.00, '2025-11-26 12:05:00');
+INSERT INTO `shopping_cart` VALUES (17, '蜀味水煮草鱼', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/a6953d5a-4c18-4b30-9319-4926ee77261f.png', 1003, 53, NULL, '中辣', 1, 38.00, '2025-11-27 18:00:00');
+INSERT INTO `shopping_cart` VALUES (18, '平菇豆腐汤', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/16d0a3d6-2253-4cfc-9b49-bf7bd9eb2ad2.png', 1003, 69, NULL, '', 1, 6.00, '2025-11-27 18:10:00');
+INSERT INTO `shopping_cart` VALUES (19, '套餐一', 'http://127.0.0.1:8080/upload/2025/11/20/22284f2c-de8d-4da9-b5c8-921107eb1ec7.png', 1004, NULL, 33, '', 1, 222.00, '2025-11-28 11:00:00');
+INSERT INTO `shopping_cart` VALUES (20, '馒头', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/475cc599-8661-4899-8f9e-121dd8ef7d02.png', 1004, 50, NULL, '', 3, 3.00, '2025-11-28 11:05:00');
+INSERT INTO `shopping_cart` VALUES (21, '清蒸鲈鱼', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/c18b5c67-3b71-466c-a75a-e63c6449f21c.png', 1001, 58, NULL, '', 1, 98.00, '2025-11-29 17:00:00');
+INSERT INTO `shopping_cart` VALUES (22, '王老吉', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/41bfcacf-7ad4-4927-8b26-df366553a94c.png', 1001, 46, NULL, '少糖', 2, 12.00, '2025-11-29 17:05:00');
+INSERT INTO `shopping_cart` VALUES (23, '剁椒鱼头', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/13da832f-ef2c-484d-8370-5934a1045a06.png', 1001, 61, NULL, '中辣', 1, 66.00, '2025-11-15 18:00:00');
+INSERT INTO `shopping_cart` VALUES (24, '梅菜扣肉', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/6080b118-e30a-4577-aab4-45042e3f88be.png', 1001, 60, NULL, '', 1, 58.00, '2025-11-15 18:05:00');
+INSERT INTO `shopping_cart` VALUES (25, '香锅牛蛙', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/f5ac8455-4793-450c-97ba-173795c34626.png', 1002, 63, NULL, '微辣', 1, 88.00, '2025-11-16 12:00:00');
+INSERT INTO `shopping_cart` VALUES (26, '清炒西兰花', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/e9ec4ba4-4b22-4fc8-9be0-4946e6aeb937.png', 1002, 56, NULL, '', 1, 18.00, '2025-11-16 12:05:00');
+INSERT INTO `shopping_cart` VALUES (27, '家庭套餐', 'http://127.0.0.1:8080/upload/2025/12/02/family_set.png', 1003, NULL, 37, '', 1, 399.00, '2025-11-17 11:00:00');
+INSERT INTO `shopping_cart` VALUES (28, '鸡蛋汤', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/c09a0ee8-9d19-428d-81b9-746221824113.png', 1003, 68, NULL, '', 1, 4.00, '2025-11-17 11:05:00');
+INSERT INTO `shopping_cart` VALUES (29, '商务套餐升级版', 'http://127.0.0.1:8080/upload/2025/12/02/business_set.png', 1004, NULL, 38, '', 1, 299.00, '2025-11-18 17:00:00');
+INSERT INTO `shopping_cart` VALUES (30, '炝炒圆白菜', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/22f59feb-0d44-430e-a6cd-6a49f27453ca.png', 1004, 57, NULL, '', 1, 18.00, '2025-11-18 17:10:00');
+INSERT INTO `shopping_cart` VALUES (31, '鮰鱼2斤', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/8cfcc576-4b66-4a09-ac68-ad5b273c2590.png', 1001, 67, NULL, '重辣', 1, 72.00, '2025-11-19 10:00:00');
+INSERT INTO `shopping_cart` VALUES (32, '北冰洋', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/4451d4be-89a2-4939-9c69-3a87151cb979.png', 1001, 47, NULL, '', 2, 8.00, '2025-11-19 10:05:00');
+INSERT INTO `shopping_cart` VALUES (33, '金汤酸菜牛蛙', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/7694a5d8-7938-4e9d-8b9e-2075983a2e38.png', 1002, 62, NULL, '不辣', 1, 88.00, '2025-11-20 18:00:00');
+INSERT INTO `shopping_cart` VALUES (34, '米饭', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/76752350-2121-44d2-b477-10791c23a8ec.png', 1002, 49, NULL, '', 3, 6.00, '2025-11-20 18:05:00');
+INSERT INTO `shopping_cart` VALUES (35, '套餐六', 'http://127.0.0.1:8080/upload/2025/11/20/b6dcbc17-9bf2-4eee-a16f-be27cbe872e9.png', 1003, NULL, 36, '', 1, 212.00, '2025-11-21 12:00:00');
+INSERT INTO `shopping_cart` VALUES (36, '馒头', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/475cc599-8661-4899-8f9e-121dd8ef7d02.png', 1003, 50, NULL, '', 2, 2.00, '2025-11-21 12:05:00');
+INSERT INTO `shopping_cart` VALUES (37, '东坡肘子', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/a80a4b8c-c93e-4f43-ac8a-856b0d5cc451.png', 1004, 59, NULL, '', 1, 138.00, '2025-11-22 19:00:00');
+INSERT INTO `shopping_cart` VALUES (38, '王老吉', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/41bfcacf-7ad4-4927-8b26-df366553a94c.png', 1004, 46, NULL, '无糖', 2, 12.00, '2025-11-22 19:05:00');
+INSERT INTO `shopping_cart` VALUES (39, '清炒小油菜', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/3613d38e-5614-41c2-90ed-ff175bf50716.png', 1001, 54, NULL, '', 1, 18.00, '2025-11-23 11:00:00');
+INSERT INTO `shopping_cart` VALUES (40, '草鱼2斤', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/b544d3ba-a1ae-4d20-a860-81cb5dec9e03.png', 1001, 65, NULL, '微辣', 1, 68.00, '2025-11-23 11:05:00');
+INSERT INTO `shopping_cart` VALUES (41, '蒜蓉娃娃菜', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/4879ed66-3860-4b28-ba14-306ac025fdec.png', 1002, 55, NULL, '', 1, 18.00, '2025-11-24 17:00:00');
+INSERT INTO `shopping_cart` VALUES (42, '雪花啤酒', 'https://sky-itcast.oss-cn-beijing.aliyuncs.com/bf8cbfc1-04d2-40e8-9826-061ee41ab87c.png', 1002, 48, NULL, '', 3, 12.00, '2025-11-24 17:05:00');
 
 -- ----------------------------
 -- Table structure for user
@@ -407,12 +567,14 @@ CREATE TABLE `user`  (
   `avatar` varchar(500) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '头像',
   `create_time` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1003 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '用户信息' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1005 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '用户信息' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES (1001, 'oUxYK5K6K6K6K6K6K6K6K6K6K6K', '张三', '13800138000', '男', '110101199001011234', 'https://example.com/avatar.jpg', '2025-12-01 13:15:05');
 INSERT INTO `user` VALUES (1002, 'oUxYK5K6K6K6K6K6K6K6K6K6K62', '李四', '13800138001', '男', '110101199001011224', 'https://example.com/avatar.jpg', '2025-12-01 13:15:05');
+INSERT INTO `user` VALUES (1003, 'oUxYK5K6K6K6K6K6K6K6K6K6K63', '王五', '13800138002', '女', '110101199001011244', 'https://example.com/avatar3.jpg', '2025-12-02 10:00:00');
+INSERT INTO `user` VALUES (1004, 'oUxYK5K6K6K6K6K6K6K6K6K6K64', '赵六', '13800138003', '男', '110101199001011254', 'https://example.com/avatar4.jpg', '2025-12-02 10:30:00');
 
 SET FOREIGN_KEY_CHECKS = 1;
