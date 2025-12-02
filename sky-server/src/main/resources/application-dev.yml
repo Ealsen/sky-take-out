@@ -12,14 +12,26 @@ sky:
 #      password:
       database: 10
   wechat:
-    appid: wxf0c0c0c0c0c0c0c0
-    secret: 123456
+    appid: yourappid
+    secret: yoursecret
+  baidu:
+    ak: yourbaiduak
+  shop:
+    address: yourshopaddress
+
 
   alioss:
     endpoint: oss-cn-beijing.aliyuncs.com
-    access-key-id: LTAI5tPeFLzsPPT8gG3LPW64
-    access-key-secret: U6k1brOZ8gaOIXv3NXbulGTUzy6Pd7
+    access-key-id: yourAccessKeyId
+    access-key-secret: yourAccessKeySecret
     bucket-name: sky-itcast
+  jwt:
+    admin-secret-key: itcast
+    admin-ttl: 7200000
+    admin-token-name: token
+    user-secret-key: itheima
+    user-ttl: 7200000
+    user-token-name: authentication
 
 # 注意：file 节点要放在 sky 节点外面，作为根节点
 file:
@@ -37,4 +49,5 @@ spring:
 
 # 服务器地址拼接
 server:
+  port: 8080
   url: http://127.0.0.1:8080

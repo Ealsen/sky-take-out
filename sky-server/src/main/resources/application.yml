@@ -1,5 +1,6 @@
 server:
-  port: 8080
+  port: ${server.port}
+  url: ${server.url}
 
 spring:
   profiles:
@@ -37,14 +38,14 @@ logging:
 sky:
   jwt:
     # 设置jwt签名加密时使用的秘钥
-    admin-secret-key: itcast
+    admin-secret-key: ${sky.jwt.admin-secret-key}
     # 设置jwt过期时间
-    admin-ttl: 7200000
+    admin-ttl: ${sky.jwt.admin-ttl}
     # 设置前端传递过来的令牌名称
-    admin-token-name: token
-    user-secret-key: itheima
-    user-ttl: 7200000
-    user-token-name: authentication
+    admin-token-name: ${sky.jwt.admin-token-name}
+    user-secret-key: ${sky.jwt.user-secret-key}
+    user-ttl: ${sky.jwt.user-ttl}
+    user-token-name: ${sky.jwt.user-token-name}
   alioss:
     endpoint: ${sky.alioss.endpoint}
     access-key-id: ${sky.alioss.access-key-id}
@@ -53,4 +54,14 @@ sky:
   wechat:
     appid: ${sky.wechat.appid}
     secret: ${sky.wechat.secret}
+
+  shop:
+    address: ${sky.shop.address}
+  baidu:
+    ak: ${sky.baidu.ak}
+
+file:
+  upload:
+    base-dir: ${file.upload.base-dir}
+    access-path: ${file.upload.access-path}
 
