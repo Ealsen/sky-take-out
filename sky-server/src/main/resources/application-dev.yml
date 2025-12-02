@@ -14,6 +14,14 @@ sky:
   wechat:
     appid: yourappid
     secret: yoursecret
+    mch-id: yourmchid
+    mch-serial-no: yourmchserialno
+    private-key-path: yourprivatekeypath
+    api-v3-key: yourapiv3key
+    we-chat-pay-cert-file-path: yourweChatPayCertFilePath
+    notify-url: yournotifyurl
+    refund-notify-url: yourrefundnotifyurl
+
   baidu:
     ak: yourbaiduak
   shop:
