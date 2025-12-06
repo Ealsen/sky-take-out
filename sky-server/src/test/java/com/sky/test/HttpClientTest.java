@@ -14,7 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.IOException;
 
-@SpringBootTest
+// @SpringBootTest
 public class HttpClientTest {
 
     /**
